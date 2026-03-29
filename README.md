@@ -1,54 +1,94 @@
-# Dummy Crew
+# 🚀 MiniBlog AI
+**MiniBlog AI** is an AI-powered content generation system built using **CrewAI**. It takes a user-provided topic and automatically generates a short, simple, and well-structured blog post using a multi-agent workflow.
 
-Welcome to the Dummy Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+## Overview
+MiniBlog AI demonstrates how multiple AI agents can collaborate to transform raw user input into meaningful, beginner-friendly content. A Report Generator Agent first analyzes the topic, then a Blog Writer Agent converts it into a clean, readable blog — all fully automated using CrewAI's agentic framework.
+
+## Key Features
+- Multi-agent architecture using CrewAI for structured content generation
+- Converts any user-provided topic into a beginner-friendly blog post
+- Automated end-to-end content creation pipeline
+- Agent roles and tasks defined via clean YAML configuration
+- Output saved directly to `blogs/blog.md`
+
+## Tech Stack
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/CrewAI-F55036?style=for-the-badge&logo=crewai&logoColor=white" alt="CrewAI"/>
+  <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI"/>
+  <img src="https://img.shields.io/badge/Groq-F55036?style=for-the-badge&logo=groq&logoColor=white" alt="Groq"/>
+  <img src="https://img.shields.io/badge/LiteLLM-000000?style=for-the-badge&logo=literalai&logoColor=white" alt="LiteLLM"/>
+  <img src="https://img.shields.io/badge/YAML-CB171E?style=for-the-badge&logo=yaml&logoColor=white" alt="YAML"/>
+</p>
 
 ## Installation
 
-Ensure you have Python >=3.10 <3.14 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+Install:
+- **Git**: [Download](https://git-scm.com/download/win)
+- **Python 3.10–3.13**: [Download](https://www.python.org/downloads/)
+- **UV** (dependency manager):
+  ```bash
+  pip install uv
+  ```
 
-First, if you haven't already, install uv:
+### Clone Repository
+1. Open CLI.
+2. Run:
+   ```bash
+   git clone https://github.com/KaustubhMestri/MiniBlog-AI
+   cd MiniBlog-AI
+   ```
 
-```bash
-pip install uv
-```
-
-Next, navigate to your project directory and install the dependencies:
-
-(Optional) Lock the dependencies and install them by using the CLI command:
+### Install Dependencies
 ```bash
 crewai install
 ```
-### Customizing
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
-
-- Modify `src/dummy/config/agents.yaml` to define your agents
-- Modify `src/dummy/config/tasks.yaml` to define your tasks
-- Modify `src/dummy/crew.py` to add your own logic, tools and specific args
-- Modify `src/dummy/main.py` to add custom inputs for your agents and tasks
-
-## Running the Project
-
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
-
-```bash
-$ crewai run
+### Set Up `.env`
+Create a `.env` file in the root directory and add your API key:
+```env
+MODEL = your_model_name
+GORQAI_API_KEY=your_api_key_here
 ```
 
-This command initializes the dummy Crew, assembling the agents and assigning them tasks as defined in your configuration.
+> Supports OpenAI or Groq (via LiteLLM). Replace the key accordingly.
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+### Run the Project
+```bash
+crewai run
+```
 
-## Understanding Your Crew
+The generated blog will be saved at:
+```
+blogs/blog.md
+```
 
-The dummy Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
+## How It Works
+1. User provides a topic as input
+2. **Report Generator Agent** analyzes the topic and generates structured information
+3. **Blog Writer Agent** converts the report into a simple, readable blog post
+4. Final output is saved to `blogs/blog.md`
 
-## Support
+## Contributing
+1. Create an [issue](https://github.com/KaustubhMestri/MiniBlog-AI/issues).
+2. Branch: `feature/<n>` or `bugfix/<n>`
+   ```bash
+   git checkout -b feature/<n>
+   ```
+3. Commit:
+   ```bash
+   git add .
+   git commit -m "#<issue> message"
+   ```
+4. Push:
+   ```bash
+   git push origin feature/<n>
+   ```
+5. Submit PR to `main`.
 
-For support, questions, or feedback regarding the Dummy Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
+## Resources
+- CrewAI Docs: https://docs.crewai.com
+- CrewAI GitHub: https://github.com/joaomdmoura/crewai
 
-Let's create wonders together with the power and simplicity of crewAI.
+## License
+MIT License. See [LICENSE](LICENSE).
